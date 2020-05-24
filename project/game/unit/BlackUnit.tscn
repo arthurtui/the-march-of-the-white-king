@@ -1,22 +1,22 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://assets/themes/white_card.tres" type="StyleBox" id=1]
+[ext_resource path="res://assets/themes/black_card.tres" type="StyleBox" id=1]
 [ext_resource path="res://game/unit/Unit.gd" type="Script" id=2]
 [ext_resource path="res://assets/images/gems/black_gem_border.png" type="Texture" id=3]
 [ext_resource path="res://assets/fonts/Bitter-Regular.ttf" type="DynamicFontData" id=4]
 [ext_resource path="res://assets/themes/theme.tres" type="Theme" id=5]
-[ext_resource path="res://assets/images/icons/white_attack.png" type="Texture" id=6]
+[ext_resource path="res://game/unit/StatContainer.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/images/icons/white_amor.png" type="Texture" id=7]
 [ext_resource path="res://assets/images/icons/white_influence.png" type="Texture" id=8]
 [ext_resource path="res://assets/images/units/b_king.png" type="Texture" id=9]
 
-[sub_resource type="DynamicFont" id=1441]
+[sub_resource type="DynamicFont" id=1]
 use_mipmaps = true
 use_filter = true
 font_data = ExtResource( 4 )
 
-[sub_resource type="Theme" id=1442]
-default_font = SubResource( 1441 )
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 1 )
 
 [node name="BlackUnit" type="Panel"]
 margin_right = 120.0
@@ -36,7 +36,7 @@ side = 1
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
-theme = SubResource( 1442 )
+theme = SubResource( 2 )
 custom_constants/margin_right = 4
 custom_constants/margin_top = 4
 custom_constants/margin_left = 4
@@ -81,7 +81,6 @@ margin_top = 112.0
 margin_right = 112.0
 margin_bottom = 172.0
 rect_min_size = Vector2( 0, 60 )
-rect_clip_content = true
 mouse_filter = 2
 color = Color( 0.117647, 0.117647, 0.117647, 1 )
 __meta__ = {
@@ -99,86 +98,37 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AtkContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer"]
-margin_top = 3.0
-margin_right = 34.0
-margin_bottom = 61.0
-rect_min_size = Vector2( 34, 0 )
+[node name="AttackContainer" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer" instance=ExtResource( 6 )]
+margin_bottom = 65.0
 hint_tooltip = "Attack
 The damage a unit deals whenever it attacks or is attacked by another unit."
-size_flags_vertical = 4
-custom_constants/separation = 0
+font_color_buff = Color( 0.486275, 1, 0.486275, 1 )
+font_color_damage = Color( 1, 0.258824, 0.258824, 1 )
 
-[node name="AtkTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/AtkContainer"]
-margin_right = 34.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 30, 30 )
-mouse_filter = 2
-texture = ExtResource( 6 )
-stretch_mode = 4
-
-[node name="AtkLabel" type="Label" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/AtkContainer"]
-margin_top = 30.0
-margin_right = 34.0
-margin_bottom = 58.0
-custom_colors/font_color = Color( 0.784314, 0.784314, 0.784314, 1 )
-text = "00"
-align = 1
-
-[node name="InfContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer"]
+[node name="InfluenceContainer" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer" instance=ExtResource( 6 )]
 margin_left = 39.0
-margin_top = 3.0
 margin_right = 73.0
-margin_bottom = 61.0
-rect_min_size = Vector2( 34, 0 )
+margin_bottom = 65.0
 hint_tooltip = "Influence
 A high influence makes it more likely that a unit is targeted by enemy units."
-size_flags_vertical = 4
-custom_constants/separation = 0
+font_color_buff = Color( 0.486275, 1, 0.486275, 1 )
+font_color_damage = Color( 1, 0.258824, 0.258824, 1 )
 
-[node name="InfTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/InfContainer"]
-margin_right = 34.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 30, 30 )
-mouse_filter = 2
+[node name="TextureRect" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/InfluenceContainer/VBoxContainer" index="0"]
 texture = ExtResource( 8 )
-stretch_mode = 4
 
-[node name="InfLabel" type="Label" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/InfContainer"]
-margin_top = 30.0
-margin_right = 34.0
-margin_bottom = 58.0
-custom_colors/font_color = Color( 0.784314, 0.784314, 0.784314, 1 )
-text = "00"
-align = 1
-
-[node name="ArmContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer"]
+[node name="ArmorContainer" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer" instance=ExtResource( 6 )]
 margin_left = 78.0
-margin_top = 3.0
 margin_right = 112.0
-margin_bottom = 61.0
-rect_min_size = Vector2( 34, 0 )
+margin_bottom = 65.0
 hint_tooltip = "Armor
 The total amount of damage a unit can take, decreases each time the unit is attacked.
 When it reaches zero the unit is out of the combat, but will return to your hand on the Recruitment step."
-size_flags_vertical = 4
-custom_constants/separation = 0
+font_color_buff = Color( 0.486275, 1, 0.486275, 1 )
+font_color_damage = Color( 1, 0.258824, 0.258824, 1 )
 
-[node name="ArmTexture" type="TextureRect" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/ArmContainer"]
-margin_right = 34.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 30, 30 )
-mouse_filter = 2
+[node name="TextureRect" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/ArmorContainer/VBoxContainer" index="0"]
 texture = ExtResource( 7 )
-stretch_mode = 4
-
-[node name="ArmLabel" type="Label" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/ArmContainer"]
-margin_top = 30.0
-margin_right = 34.0
-margin_bottom = 58.0
-custom_colors/font_color = Color( 0.784314, 0.784314, 0.784314, 1 )
-text = "00"
-align = 1
 
 [node name="RarityBorder" type="TextureRect" parent="."]
 margin_left = 87.0
@@ -204,3 +154,9 @@ mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[editable path="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/AttackContainer"]
+
+[editable path="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/InfluenceContainer"]
+
+[editable path="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/ArmorContainer"]

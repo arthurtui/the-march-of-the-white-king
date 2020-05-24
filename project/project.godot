@@ -10,12 +10,12 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Panel",
-"class": "Unit",
+"class": "UnitDisplay",
 "language": "GDScript",
 "path": "res://game/unit/Unit.gd"
 } ]
 _global_script_class_icons={
-"Unit": ""
+"UnitDisplay": ""
 }
 
 [application]

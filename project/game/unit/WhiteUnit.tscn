@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://assets/themes/black_card.tres" type="StyleBox" id=1]
+[ext_resource path="res://assets/themes/white_card.tres" type="StyleBox" id=1]
 [ext_resource path="res://assets/images/gems/white_gem_border.png" type="Texture" id=2]
 [ext_resource path="res://assets/images/icons/black_armor.png" type="Texture" id=3]
 [ext_resource path="res://assets/images/icons/black_influence.png" type="Texture" id=4]
@@ -10,6 +10,7 @@
 
 [node name="WhiteUnit" instance=ExtResource( 5 )]
 custom_styles/panel = ExtResource( 1 )
+side = 0
 
 [node name="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer" index="0"]
 texture = ExtResource( 7 )
@@ -17,23 +18,44 @@ texture = ExtResource( 7 )
 [node name="BottomBar" parent="MarginContainer/VBoxContainer" index="1"]
 color = Color( 0.784314, 0.784314, 0.784314, 1 )
 
-[node name="AtkTexture" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/AtkContainer" index="0"]
+[node name="AttackContainer" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer" index="0"]
+font_color = Color( 0.117647, 0.117647, 0.117647, 1 )
+font_color_buff = Color( 0, 0.321569, 0, 1 )
+font_color_damage = Color( 0.521569, 0, 0, 1 )
+
+[node name="TextureRect" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/AttackContainer/VBoxContainer" index="0"]
 texture = ExtResource( 6 )
 
-[node name="AtkLabel" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/AtkContainer" index="1"]
+[node name="Label" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/AttackContainer/VBoxContainer" index="1"]
 custom_colors/font_color = Color( 0.117647, 0.117647, 0.117647, 1 )
 
-[node name="InfTexture" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/InfContainer" index="0"]
+[node name="InfluenceContainer" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer" index="1"]
+font_color = Color( 0.117647, 0.117647, 0.117647, 1 )
+font_color_buff = Color( 0, 0.321569, 0, 1 )
+font_color_damage = Color( 0.521569, 0, 0, 1 )
+
+[node name="TextureRect" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/InfluenceContainer/VBoxContainer" index="0"]
 texture = ExtResource( 4 )
 
-[node name="InfLabel" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/InfContainer" index="1"]
+[node name="Label" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/InfluenceContainer/VBoxContainer" index="1"]
 custom_colors/font_color = Color( 0.117647, 0.117647, 0.117647, 1 )
 
-[node name="ArmTexture" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/ArmContainer" index="0"]
+[node name="ArmorContainer" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer" index="2"]
+font_color = Color( 0.117647, 0.117647, 0.117647, 1 )
+font_color_buff = Color( 0, 0.321569, 0, 1 )
+font_color_damage = Color( 0.521569, 0, 0, 1 )
+
+[node name="TextureRect" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/ArmorContainer/VBoxContainer" index="0"]
 texture = ExtResource( 3 )
 
-[node name="ArmLabel" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/ArmContainer" index="1"]
+[node name="Label" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/ArmorContainer/VBoxContainer" index="1"]
 custom_colors/font_color = Color( 0.117647, 0.117647, 0.117647, 1 )
 
 [node name="RarityBorder" parent="." index="1"]
 texture = ExtResource( 2 )
+
+[editable path="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/AttackContainer"]
+
+[editable path="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/InfluenceContainer"]
+
+[editable path="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/ArmorContainer"]
