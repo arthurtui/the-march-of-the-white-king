@@ -20,13 +20,6 @@ func _ready():
 	pass
 
 
-func _input(event):
-	if event.is_action_pressed("ui_left"):
-		change_value(-1)
-	elif event.is_action_pressed("ui_right"):
-		change_value(+10)
-
-
 func set_font_color(new_color:Color):
 	font_color = new_color
 	$VBoxContainer/Label.set("custom_colors/font_color", font_color)

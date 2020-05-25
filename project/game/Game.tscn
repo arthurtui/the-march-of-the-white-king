@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://game/Game.gd" type="Script" id=1]
+[ext_resource path="res://game/board/PlayerHand.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/ui/UI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://game/recruitment/Recruitment.tscn" type="PackedScene" id=4]
+[ext_resource path="res://game/battle/Battle.tscn" type="PackedScene" id=5]
+
+[node name="Game" type="Node"]
+script = ExtResource( 1 )
+
+[node name="UI" parent="." instance=ExtResource( 3 )]
+
+[node name="PlayerHand" parent="." instance=ExtResource( 2 )]
+
+[node name="Recruitment" parent="." instance=ExtResource( 4 )]
+
+[node name="Battle" parent="." instance=ExtResource( 5 )]
+visible = false
+[connection signal="win_screen_ended" from="UI" to="." method="_on_UI_win_screen_ended"]
+[connection signal="battle_pressed" from="Recruitment" to="." method="_on_Recruitment_battle_pressed"]
+[connection signal="enemy_killed" from="Battle" to="." method="_on_Battle_enemy_killed"]
+[connection signal="lost" from="Battle" to="." method="_on_Battle_lost"]
+[connection signal="won" from="Battle" to="." method="_on_Battle_won"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://assets/themes/white_card.tres" type="StyleBox" id=1]
 [ext_resource path="res://assets/images/gems/white_gem_border.png" type="Texture" id=2]
@@ -6,14 +6,10 @@
 [ext_resource path="res://assets/images/icons/black_influence.png" type="Texture" id=4]
 [ext_resource path="res://game/unit/BlackUnit.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/images/icons/black_attack.png" type="Texture" id=6]
-[ext_resource path="res://assets/images/units/w_pawn.png" type="Texture" id=7]
 
 [node name="WhiteUnit" instance=ExtResource( 5 )]
 custom_styles/panel = ExtResource( 1 )
 side = 0
-
-[node name="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer" index="0"]
-texture = ExtResource( 7 )
 
 [node name="BottomBar" parent="MarginContainer/VBoxContainer" index="1"]
 color = Color( 0.784314, 0.784314, 0.784314, 1 )
@@ -51,7 +47,7 @@ texture = ExtResource( 3 )
 [node name="Label" parent="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/ArmorContainer/VBoxContainer" index="1"]
 custom_colors/font_color = Color( 0.117647, 0.117647, 0.117647, 1 )
 
-[node name="RarityBorder" parent="." index="1"]
+[node name="RarityBorder" parent="." index="2"]
 texture = ExtResource( 2 )
 
 [editable path="MarginContainer/VBoxContainer/BottomBar/HBoxContainer/AttackContainer"]
