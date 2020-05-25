@@ -113,6 +113,7 @@ __meta__ = {
 margin_bottom = 65.0
 hint_tooltip = "Attack
 The damage a unit deals whenever it attacks or is attacked by another unit."
+font_color = Color( 0.784314, 0.784314, 0.784314, 1 )
 font_color_buff = Color( 0.486275, 1, 0.486275, 1 )
 font_color_damage = Color( 1, 0.258824, 0.258824, 1 )
 
@@ -122,6 +123,7 @@ margin_right = 73.0
 margin_bottom = 65.0
 hint_tooltip = "Influence
 A high influence makes it more likely that a unit is targeted by enemy units."
+font_color = Color( 0.784314, 0.784314, 0.784314, 1 )
 font_color_buff = Color( 0.486275, 1, 0.486275, 1 )
 font_color_damage = Color( 1, 0.258824, 0.258824, 1 )
 
@@ -135,6 +137,7 @@ margin_bottom = 65.0
 hint_tooltip = "Armor
 The total amount of damage a unit can take, decreases each time the unit is attacked.
 When it reaches zero the unit is out of the combat, but your units will return to your hand on the Recruitment step."
+font_color = Color( 0.784314, 0.784314, 0.784314, 1 )
 font_color_buff = Color( 0.486275, 1, 0.486275, 1 )
 font_color_damage = Color( 1, 0.258824, 0.258824, 1 )
 

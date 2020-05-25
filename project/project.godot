@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Node2D",
 "class": "CardMovement",
 "language": "GDScript",
-"path": "res://CardMovement.gd"
+"path": "res://game/board/CardMovement.gd"
 }, {
 "base": "Node2D",
 "class": "CardSlot",

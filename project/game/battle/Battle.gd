@@ -8,7 +8,7 @@ signal lost
 onready var enemy_hand = $EnemyHand
 onready var player_hand = $PlayerHand
 
-const DIFFICULTY_RAMP := 20
+const DIFFICULTY_RAMP := 10
 const TURN_DELAY := 1.2
 const CARD := preload("res://game/board/CardMovement.tscn")
 const BLACK_UNIT := preload("res://game/unit/BlackUnit.tscn")
@@ -86,12 +86,12 @@ func new_turn():
 		hand = player_hand
 		opposing_hand = enemy_hand
 		white_index += 1
-		index = white_index
+		index = white_index % Hand.SIZE
 	else:
 		hand = enemy_hand
 		opposing_hand = player_hand
 		black_index += 1
-		index = black_index
+		index = black_index % Hand.SIZE
 	
 	attacking_card = hand.slots[index].card
 	while not attacking_card:
