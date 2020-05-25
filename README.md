@@ -1,6 +1,6 @@
 ![Banner](https://raw.githubusercontent.com/ArthurTui/the-march-of-the-white-king/master/motwk_banner.png)
 
-A game made for the *[Certamente não é a Meeting Jam](https://itch.io/jam/not-the-meeting-jam)* game jam.\
+A game made for the *[Certamente não é a Meeting Jam](https://itch.io/jam/not-the-meeting-jam)* game jam using [Godot Engine v3.2](https://godotengine.org/).\
 Play it **[here](https://tuii.itch.io/march-of-the-white-king)**!
 
 
